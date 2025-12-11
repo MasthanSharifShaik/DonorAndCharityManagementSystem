@@ -2,6 +2,8 @@ Donor & Charity Management System
 
 A full-stack web application designed to manage donors, donations, fundraising campaigns, fund allocation, and user accounts. The system helps organizations track charity activities in a structured and efficient way.
 
+<img width="1920" height="957" alt="CharityProject img" src="https://github.com/user-attachments/assets/7f33ddb1-9cce-4abe-830b-1df33a018693" />
+
 ⭐ Key Features :
 * User Management – secure login and logout
 * Donor Module – add, update, view, and delete donors
@@ -16,6 +18,7 @@ Backend: Spring Boot, Java, Spring Security, JPA/Hibernate, MySQL
 Frontend: HTML, CSS, JavaScript
 Build Tool: Maven
 IDE: IntelliJ IDEA
+
 
 📂 Project Structure
 backend/
