@@ -40,11 +40,11 @@ frontend/
 CREATE DATABASE donor_management;
 
 2️⃣ Configure Backend
-Edit application.properties:
-spring.datasource.url=jdbc:mysql://localhost:3306/donor_management
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
-spring.jpa.hibernate.ddl-auto=update
+* Edit application.properties:
+* spring.datasource.url=jdbc:mysql://localhost:3306/donor_management
+* spring.datasource.username=YOUR_USERNAME
+* spring.datasource.password=YOUR_PASSWORD
+* spring.jpa.hibernate.ddl-auto=update
 
 3️⃣ Start Backend
 mvn spring-boot:run
@@ -53,8 +53,8 @@ mvn spring-boot:run
 Open index.html in your browser.
 
 📘 Sample API Endpoints
-->POST       /users
-->GETBYID    /donors/1
-->GRTALL     /donations
-->PUT        /campaigns/2
-->DELETE     /fund-allocations/3
+* POST       /users
+* GETBYID    /donors/1
+* GRTALL     /donations
+* PUT        /campaigns/2
+* DELETE     /fund-allocations/3
