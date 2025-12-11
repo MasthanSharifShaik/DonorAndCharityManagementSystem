@@ -22,18 +22,18 @@ IDE: IntelliJ IDEA
 
 📂 Project Structure
 backend/
- ├── controller
- ├── service
- ├── repository
- ├── models
- ├── dto
- ├── exception
- └── security
+ * controller
+ * service
+ * repository
+ * models
+ * dto
+ * exception
+ * security
 
 frontend/
- ├── index.html
- ├── css/
- └── js/
+ * index.html
+ * css/
+ * js/
 
 ⚙️ How to Run
 1️⃣ Database Setup
@@ -53,8 +53,8 @@ mvn spring-boot:run
 Open index.html in your browser.
 
 📘 Sample API Endpoints
-POST       /users
-GETBYID    /donors/1
-GRTALL     /donations
-PUT        /campaigns/2
-DELETE     /fund-allocations/3
+->POST       /users
+->GETBYID    /donors/1
+->GRTALL     /donations
+->PUT        /campaigns/2
+->DELETE     /fund-allocations/3
