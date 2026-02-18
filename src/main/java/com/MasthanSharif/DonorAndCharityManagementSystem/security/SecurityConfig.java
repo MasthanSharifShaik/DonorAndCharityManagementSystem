@@ -5,8 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -20,11 +20,11 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .cors(Customizer.withDefaults()) // ✅ enable CORS
+                .cors(Customizer.withDefaults())   // 🔥 enable CORS
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
 
-                        // Allow static resources
+                        // allow static files
                         .requestMatchers(
                                 "/",
                                 "/index.html",
@@ -38,13 +38,12 @@ public class SecurityConfig {
                                 "/**/*.svg"
                         ).permitAll()
 
-                        // Allow user CRUD
+                        // allow user APIs
                         .requestMatchers(HttpMethod.POST, "/users").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users/**").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/users/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/users/**").permitAll()
 
-                        // Everything else secured
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
@@ -52,30 +51,28 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // ✅ CORS configuration
+
+    // 🔥 PRODUCTION CORS CONFIG
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
-        CorsConfiguration configuration = new CorsConfiguration();
+        CorsConfiguration config = new CorsConfiguration();
 
-        configuration.setAllowedOriginPatterns(List.of("*"));
-        // allows Railway domain + localhost + anything
+        config.setAllowedOrigins(List.of(
+                "http://localhost:3000",
+                "https://donorandcharitymanagementsystem-production-3c6e.up.railway.app"
+        ));
 
-        configuration.setAllowedMethods(
-                List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
-        );
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowCredentials(true);
 
-        configuration.setAllowedHeaders(List.of("*"));
-
-        configuration.setAllowCredentials(true);
-
-        UrlBasedCorsConfigurationSource source =
-                new UrlBasedCorsConfigurationSource();
-
-        source.registerCorsConfiguration("/**", configuration);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", config);
 
         return source;
     }
+
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
