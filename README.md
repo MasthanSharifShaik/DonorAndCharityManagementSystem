@@ -9,6 +9,8 @@ This system enables charitable organizations to track financial contributions, m
 
 <img width="1920" height="957" alt="CharityProject img" src="https://github.com/user-attachments/assets/39a9d558-8152-4fde-9bcf-05788a040206" />
 
+LIVE DEMO :https://donorandcharitymanagementsystem-production-3c6e.up.railway.app/
+
 
 🚀 Features:
 
@@ -152,6 +154,8 @@ Open index.html in your browser.
 * Cloud deployment
 * Docker containerization
 * Swagger API documentation
+
+LIVE DEMO : https://donorandcharitymanagementsystem-production-3c6e.up.railway.app/
 
 
 
